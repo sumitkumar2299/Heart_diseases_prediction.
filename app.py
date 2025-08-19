@@ -2,13 +2,16 @@
 
 import streamlit as st
 import pandas as pd
-import joblib
+import pickle
+# import joblib
 
 # ------------------- Load Model -------------------
 @st.cache_resource
 def load_model():
     try:
-        model = joblib.load("KNN_heart.pkl")
+        # model = joblib.load("KNN_heart.pkl")
+        with open("KNN_heart.pkl", "rb") as f:
+    model = pickle.load(f)
         scaler = joblib.load("scaler.pkl")
         expected_columns = joblib.load("columns.pkl")
         return model, scaler, expected_columns
