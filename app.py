@@ -6,6 +6,13 @@ import pickle
 # import joblib
 
 # ------------------- Load Model -------------------
+
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(BASE_DIR, "KNN_heart.pkl"), "rb") as f:
+    model = pickle.load(f)
 @st.cache_resource
 def load_model():
     try:
