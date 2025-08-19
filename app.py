@@ -11,7 +11,7 @@ def load_model():
     try:
         # model = joblib.load("KNN_heart.pkl")
         with open("KNN_heart.pkl", "rb") as f:
-    model = pickle.load(f)
+            model = pickle.load(f)
         scaler = joblib.load("scaler.pkl")
         expected_columns = joblib.load("columns.pkl")
         return model, scaler, expected_columns
