@@ -2,23 +2,13 @@
 
 import streamlit as st
 import pandas as pd
-import pickle
-# import joblib
+import joblib
 
 # ------------------- Load Model -------------------
-
-import os
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# with open(os.path.join(BASE_DIR, "KNN_heart.pkl"), "rb") as f:
-#     model = pickle.load(f)
 @st.cache_resource
 def load_model():
     try:
-        # model = joblib.load("KNN_heart.pkl")
-        with open("KNN_heart.pkl", "rb") as f:
-            model = pickle.load(f)
+        model = joblib.load("KNN_heart.pkl")
         scaler = joblib.load("scaler.pkl")
         expected_columns = joblib.load("columns.pkl")
         return model, scaler, expected_columns
